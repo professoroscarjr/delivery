@@ -1,0 +1,221 @@
+<html><head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>DeliverEase - Configurações</title>
+  <link rel="stylesheet" href="css/style.css">
+  <style>
+   
+    main {
+      max-width: 800px;
+      margin: 2rem auto;
+      padding: 1rem;
+      background-color: white;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    }
+    h2 {
+      color: #ff6b6b;
+    }
+    form {
+      display: grid;
+      gap: 1rem;
+    }
+    label {
+      font-weight: bold;
+    }
+    input[type="text"],
+    input[type="email"],
+    input[type="tel"],
+    textarea,
+    select {
+      width: 100%;
+      padding: 0.5rem;
+      border: 1px solid #ddd;
+      border-radius: 4px;
+    }
+    button {
+      background-color: #ff6b6b;
+      color: white;
+      border: none;
+      padding: 0.5rem 1rem;
+      cursor: pointer;
+      border-radius: 4px;
+    }
+    button:hover {
+      background-color: #ff8080;
+    }
+    .switch {
+      position: relative;
+      display: inline-block;
+      width: 60px;
+      height: 34px;
+    }
+    .switch input {
+      opacity: 0;
+      width: 0;
+      height: 0;
+    }
+    .slider {
+      position: absolute;
+      cursor: pointer;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background-color: #ccc;
+      transition: .4s;
+      border-radius: 34px;
+    }
+    .slider:before {
+      position: absolute;
+      content: "";
+      height: 26px;
+      width: 26px;
+      left: 4px;
+      bottom: 4px;
+      background-color: white;
+      transition: .4s;
+      border-radius: 50%;
+    }
+    input:checked + .slider {
+      background-color: #4ecdc4;
+    }
+    input:checked + .slider:before {
+      transform: translateX(26px);
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <svg class="logo" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+      <circle cx="50" cy="50" r="45" fill="#ffffff"/>
+      <path d="M30 40 Q50 20 70 40 Q90 60 70 80 Q50 100 30 80 Q10 60 30 40 Z" fill="#4a90e2"/>
+      <circle cx="40" cy="40" r="5" fill="#ffffff"/>
+      <circle cx="60" cy="40" r="5" fill="#ffffff"/>
+      <path d="M40 60 Q50 70 60 60" stroke="#ffffff" stroke-width="3" fill="none"/>
+    </svg>  
+    <h1>DeliverEase</h1>
+    <p>Gestão de Delivery para Restaurantes</p>
+  </header>
+  
+  <nav>
+    <ul>
+      <li><a href="home.html">Início</a></li>
+      <li><a href="restaurantes.html">Restaurantes</a></li>
+      <li><a href="pedidos.html">Pedidos</a></li>
+      <li><a href="comofunciona.html">Como Funciona</a></li>
+      <li><a href="cadastro.html">Cadastro</a></li>
+      <li><a href="painelcontrole.html">Painel</a></li>
+      <li><a href="gestaoprodutos.html">Gestão</a></li>
+    </ul>
+  </nav>
+
+  <main>
+    <h2>Configurações do Restaurante</h2>
+    <form id="config-form">
+      <div>
+        <label for="restaurant-name">Nome do Restaurante:</label>
+        <input type="text" id="restaurant-name" name="restaurant-name" required>
+      </div>
+      <div>
+        <label for="restaurant-type">Tipo de Cozinha:</label>
+        <select id="restaurant-type" name="restaurant-type">
+          <option value="italiana">Italiana</option>
+          <option value="japonesa">Japonesa</option>
+          <option value="brasileira">Brasileira</option>
+          <option value="fast-food">Fast Food</option>
+          <option value="vegetariana">Vegetariana</option>
+        </select>
+      </div>
+      <div>
+        <label for="restaurant-address">Endereço:</label>
+        <textarea id="restaurant-address" name="restaurant-address" required></textarea>
+      </div>
+      <div>
+        <label for="restaurant-phone">Telefone:</label>
+        <input type="tel" id="restaurant-phone" name="restaurant-phone" required>
+      </div>
+      <div>
+        <label for="restaurant-email">E-mail:</label>
+        <input type="email" id="restaurant-email" name="restaurant-email" required>
+      </div>
+      <div>
+        <label for="delivery-radius">Raio de Entrega (km):</label>
+        <input type="number" id="delivery-radius" name="delivery-radius" min="1" max="50" required>
+      </div>
+      <div>
+        <label for="minimum-order">Pedido Mínimo (R$):</label>
+        <input type="number" id="minimum-order" name="minimum-order" min="0" step="0.01" required>
+      </div>
+      <div>
+        <label for="delivery-fee">Taxa de Entrega (R$):</label>
+        <input type="number" id="delivery-fee" name="delivery-fee" min="0" step="0.01" required>
+      </div>
+      <div>
+        <label for="opening-hours">Horário de Funcionamento:</label>
+        <input type="text" id="opening-hours" name="opening-hours" placeholder="Ex: Seg-Sex 10h-22h, Sáb-Dom 11h-23h" required>
+      </div>
+      <div>
+        <label for="accept-orders">Aceitar Pedidos:</label>
+        <label class="switch">
+          <input type="checkbox" id="accept-orders" name="accept-orders" checked>
+          <span class="slider"></span>
+        </label>
+      </div>
+      <button type="submit">Salvar Configurações</button>
+    </form>
+  </main>
+
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <script>
+    $(document).ready(function() {
+      // Carregar configurações salvas (simulado)
+      const savedConfig = {
+        name: "Pizzaria Bella Napoli",
+        type: "italiana",
+        address: "Rua das Flores, 123 - Centro",
+        phone: "(11) 1234-5678",
+        email: "contato@bellanapoli.com",
+        deliveryRadius: 10,
+        minimumOrder: 30.00,
+        deliveryFee: 5.00,
+        openingHours: "Seg-Sex 18h-23h, Sáb-Dom 18h-00h",
+        acceptOrders: true
+      };
+
+      // Preencher o formulário com as configurações salvas
+      $('#restaurant-name').val(savedConfig.name);
+      $('#restaurant-type').val(savedConfig.type);
+      $('#restaurant-address').val(savedConfig.address);
+      $('#restaurant-phone').val(savedConfig.phone);
+      $('#restaurant-email').val(savedConfig.email);
+      $('#delivery-radius').val(savedConfig.deliveryRadius);
+      $('#minimum-order').val(savedConfig.minimumOrder);
+      $('#delivery-fee').val(savedConfig.deliveryFee);
+      $('#opening-hours').val(savedConfig.openingHours);
+      $('#accept-orders').prop('checked', savedConfig.acceptOrders);
+
+      // Manipular o envio do formulário
+      $('#config-form').submit(function(e) {
+        e.preventDefault();
+        
+        // Aqui você normalmente enviaria os dados para o servidor
+        // Para este exemplo, vamos apenas mostrar uma mensagem de sucesso
+        alert("Configurações salvas com sucesso!");
+        
+        // Simular o envio dos dados para o servidor
+        console.log({
+          name: $('#restaurant-name').val(),
+          type: $('#restaurant-type').val(),
+          address: $('#restaurant-address').val(),
+          phone: $('#restaurant-phone').val(),
+          email: $('#restaurant-email').val(),
+          deliveryRadius: $('#delivery-radius').val(),
+          minimumOrder: $('#minimum-order').val(),
+          deliveryFee: $('#delivery-fee').val(),
+          openingHours: $('#opening-hours').val(),
+          acceptOrders: $('#accept-orders').is(':checked')
+        });
+      });
+    });
+  </script>
+</body></html>

@@ -1,0 +1,214 @@
+<html>
+  <head>
+    <meta charset="UTF-8"><meta name="viewport"
+      content="width=device-width, initial-scale=1.0">
+    <title>DeliverEase - Relatórios e Análises</title>
+    <link rel="stylesheet" href="css/style.css">
+    <style>
+    
+  main {
+    max-width: 1200px;
+    margin: 2rem auto;
+    padding: 2rem;
+    background-color: white;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+  }
+  .dashboard {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+  }
+  .card {
+    background-color: #ffffff;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    padding: 1.5rem;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+  .card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+  }
+  .card h2 {
+    margin-top: 0;
+    color: #2c3e50;
+    font-size: 1.2rem;
+  }
+  .chart-container {
+    height: 300px;
+    margin-top: 1rem;
+  }
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 1rem;
+  }
+  th, td {
+    text-align: left;
+    padding: 0.5rem;
+    border-bottom: 1px solid #e0e0e0;
+  }
+  th {
+    background-color: #f5f5f5;
+    font-weight: bold;
+    color: #2c3e50;
+  }
+  tr:hover {
+    background-color: #f9f9f9;
+  }
+</style>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  </head>
+  <body>
+    <header>
+      <svg class="logo" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+        <circle cx="50" cy="50" r="45" fill="#ffffff"/>
+        <path d="M30 40 Q50 20 70 40 Q90 60 70 80 Q50 100 30 80 Q10 60 30 40 Z" fill="#4a90e2"/>
+        <circle cx="40" cy="40" r="5" fill="#ffffff"/>
+        <circle cx="60" cy="40" r="5" fill="#ffffff"/>
+        <path d="M40 60 Q50 70 60 60" stroke="#ffffff" stroke-width="3" fill="none"/>
+      </svg>  
+      <h1>DeliverEase</h1>
+      <p class="tagline">Simplifique a gestão do seu delivery</p>
+    </header>
+    <nav>
+      <ul>
+        <li><a href="home.html">Início</a></li>
+        <li><a href="restaurantes.html">Restaurantes</a></li>
+        <li><a href="pedidos.html">Pedidos</a></li>
+        <li><a href="comofunciona.html">Como Funciona</a></li>
+        <li><a href="cadastro.html">Cadastro</a></li>
+        <li><a href="painelcontrole.html">Painel</a></li>
+        <li><a href="gestaoprodutos.html">Gestão</a></li>
+        <li><a href="bi.html">BI</a></li>
+      </ul>
+    </nav>
+    <main>
+      <section id="overview" class="dashboard">
+        <div class="card">
+          <h2>Vendas Totais</h2>
+          <div class="chart-container">
+            <canvas id="salesChart"></canvas>
+          </div>
+        </div>
+        <div class="card">
+          <h2>Pedidos por Categoria</h2>
+          <div class="chart-container">
+            <canvas id="categoryChart"></canvas>
+          </div>
+        </div>
+        <div class="card">
+          <h2>Avaliações dos Clientes</h2>
+          <div class="chart-container">
+            <canvas id="ratingChart"></canvas>
+          </div>
+        </div>
+        <div class="card">
+          <h2>Top 5 Restaurantes</h2>
+          <table>
+            <thead>
+              <tr>
+                <th>Restaurante</th>
+                <th>Vendas</th>
+                <th>Avaliação</th>
+              </tr>
+            </thead>
+            <tbody id="topRestaurants">
+            </tbody>
+          </table>
+        </div>
+      </section>
+    </main>
+    <script>
+    // Dados simulados
+    const salesData = {
+      labels: ['Jan', 'Fev', 'Mar', 'Abr', 'Mai', 'Jun'],
+      datasets: [{
+        label: 'Vendas Mensais (R$)',
+        data: [65000, 59000, 80000, 81000, 76000, 95000],
+        backgroundColor: 'rgba(75, 192, 192, 0.2)',
+        borderColor: 'rgba(75, 192, 192, 1)',
+        borderWidth: 1
+      }]
+    };
+
+    const categoryData = {
+      labels: ['Pizza', 'Hambúrguer', 'Sushi', 'Temaki', 'Pasta'],
+      datasets: [{
+        label: 'Pedidos por Categoria',
+        data: [300, 250, 200, 180, 220],
+        backgroundColor: [
+          'rgba(255, 99, 132, 0.5)',
+          'rgba(54, 162, 235, 0.5)',
+          'rgba(255, 206, 86, 0.5)',
+          'rgba(75, 192, 192, 0.5)',
+          'rgba(153, 102, 255, 0.5)'
+        ]
+      }]
+    };
+
+    const ratingData = {
+      labels: ['1 Estrela', '2 Estrelas', '3 Estrelas', '4 Estrelas', '5 Estrelas'],
+      datasets: [{
+        label: 'Número de Avaliações',
+        data: [10, 30, 100, 300, 560],
+        backgroundColor: 'rgba(255, 159, 64, 0.5)',
+        borderColor: 'rgba(255, 159, 64, 1)',
+        borderWidth: 1
+      }]
+    };
+
+    const topRestaurants = [
+      { name: 'Pizza Delícia', sales: 95000, rating: 4.8 },
+      { name: 'Burguer Queen', sales: 88000, rating: 4.7 },
+      { name: 'Sushi Master', sales: 82000, rating: 4.9 },
+      { name: 'Cantina Bella Italia', sales: 79000, rating: 4.6 },
+      { name: 'Sabor Caseiro', sales: 75000, rating: 4.5 }
+    ];
+
+    // Criação dos gráficos
+    window.onload = function() {
+      new Chart(document.getElementById('salesChart').getContext('2d'), {
+        type: 'line',
+        data: salesData,
+        options: {
+          responsive: true,
+          maintainAspectRatio: false
+        }
+      });
+
+      new Chart(document.getElementById('categoryChart').getContext('2d'), {
+        type: 'pie',
+        data: categoryData,
+        options: {
+          responsive: true,
+          maintainAspectRatio: false
+        }
+      });
+
+      new Chart(document.getElementById('ratingChart').getContext('2d'), {
+        type: 'bar',
+        data: ratingData,
+        options: {
+          responsive: true,
+          maintainAspectRatio: false,
+          scales: {
+            y: {
+              beginAtZero: true
+            }
+          }
+        }
+      });
+
+      // Preenchendo a tabela de top restaurantes
+      const tableBody = document.getElementById('topRestaurants');
+      topRestaurants.forEach(restaurant => {
+        const row = tableBody.insertRow();
+        row.insertCell(0).textContent = restaurant.name;
+        row.insertCell(1).textContent = `R$ ${restaurant.sales.toLocaleString()}`;
+        row.insertCell(2).textContent = restaurant.rating.toFixed(1);
+      });
+    };
+  </script>
+  </body></html>

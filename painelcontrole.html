@@ -1,0 +1,145 @@
+<html><head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>DeliverEase - Gestão de Delivery para Restaurantes</title>
+  <link rel="stylesheet" href="css/style.css">
+  <style>
+   
+    main {
+      max-width: 1200px;
+      margin: 2rem auto;
+      padding: 2rem;
+      background-color: white;
+      box-shadow: 0 0 20px rgba(0,0,0,0.1);
+      border-radius: 8px;
+    }
+    .dashboard {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 2rem;
+    }
+    .dashboard-item {
+      background-color: #fff;
+      border-radius: 8px;
+      padding: 1.5rem;
+      text-align: center;
+      box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+      transition: transform 0.3s ease;
+    }
+    .dashboard-item:hover {
+      transform: translateY(-5px);
+    }
+    .dashboard-item h3 {
+      margin-top: 0;
+      color: #ff6b6b;
+    }
+    .dashboard-item p {
+      font-size: 2rem;
+      font-weight: bold;
+      margin: 1rem 0;
+    }
+    .cta-button {
+      display: inline-block;
+      background-color: #4ecdc4;
+      color: white;
+      padding: 0.8rem 1.5rem;
+      border-radius: 25px;
+      text-decoration: none;
+      font-weight: bold;
+      transition: background-color 0.3s ease;
+    }
+    .cta-button:hover {
+      background-color: #45b7ac;
+    }
+    footer {
+      text-align: center;
+      padding: 1rem;
+      background-color: #333;
+      color: white;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <svg class="logo" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+      <circle cx="50" cy="50" r="45" fill="#ffffff"/>
+      <path d="M30 40 Q50 20 70 40 Q90 60 70 80 Q50 100 30 80 Q10 60 30 40 Z" fill="#4a90e2"/>
+      <circle cx="40" cy="40" r="5" fill="#ffffff"/>
+      <circle cx="60" cy="40" r="5" fill="#ffffff"/>
+      <path d="M40 60 Q50 70 60 60" stroke="#ffffff" stroke-width="3" fill="none"/>
+    </svg>  
+    <h1>DeliverEase</h1>
+    <p>Gestão de Delivery para Restaurantes</p>
+  </header>
+  
+  <nav>
+    <ul>
+      <li><a href="home.html">Início</a></li>
+      <li><a href="restaurantes.html">Restaurantes</a></li>
+      <li><a href="pedidos.html">Pedidos</a></li>
+      <li><a href="comofunciona.html">Como Funciona</a></li>
+      <li><a href="cadastro.html">Cadastro</a></li>
+      <li><a href="painelcontrole.html">Painel</a></li>
+      <li><a href="gestaoprodutos.html">Gestão</a></li>
+    </ul>
+  </nav>
+  
+  <main>
+    <h2>Painel de Controle</h2>
+    <div class="dashboard">
+      <div class="dashboard-item">
+        <h3>Pedidos Hoje</h3>
+        <p id="orders-today">0</p>
+        <a href="/pedidos" class="cta-button">Ver Pedidos</a>
+      </div>
+      <div class="dashboard-item">
+        <h3>Receita Hoje</h3>
+        <p id="revenue-today">R$ 0,00</p>
+        <a href="/relatorios" class="cta-button">Ver Relatórios</a>
+      </div>
+      <div class="dashboard-item">
+        <h3>Itens no Menu</h3>
+        <p id="menu-items">0</p>
+        <a href="/menu" class="cta-button">Gerenciar Menu</a>
+      </div>
+      <div class="dashboard-item">
+        <h3>Avaliação Média</h3>
+        <p id="average-rating">0.0</p>
+        <a href="/avaliacoes" class="cta-button">Ver Avaliações</a>
+      </div>
+    </div>
+  </main>
+
+  <footer>
+    <p>&copy; 2023 DeliverEase. Todos os direitos reservados.</p>
+  </footer>
+
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <script>
+    $(document).ready(function() {
+      // Simulating data fetch from an API
+      function fetchDashboardData() {
+        // In a real application, this would be an API call
+        return {
+          ordersToday: 27,
+          revenueToday: 1250.75,
+          menuItems: 42,
+          averageRating: 4.7
+        };
+      }
+
+      function updateDashboard() {
+        const data = fetchDashboardData();
+        $('#orders-today').text(data.ordersToday);
+        $('#revenue-today').text(`R$ ${data.revenueToday.toFixed(2)}`);
+        $('#menu-items').text(data.menuItems);
+        $('#average-rating').text(data.averageRating.toFixed(1));
+      }
+
+      updateDashboard();
+
+      // Simulating real-time updates
+      setInterval(updateDashboard, 60000); // Update every minute
+    });
+  </script>
+</body></html>

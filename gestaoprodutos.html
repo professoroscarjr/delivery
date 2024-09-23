@@ -1,0 +1,126 @@
+<html><head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DeliverEase - Gestão de Delivery</title>
+    <link rel="stylesheet" href="css/style.css">
+    <style>
+   
+    main {
+      max-width: 800px;
+      margin: 2rem auto;
+      padding: 1rem;
+      background-color: white;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    }
+    h2 {
+      color: #ff6b6b;
+    }
+    .menu-item {
+      border: 1px solid #ddd;
+      padding: 1rem;
+      margin-bottom: 1rem;
+    }
+    .price {
+      font-weight: bold;
+      color: #4ecdc4;
+    }
+    button {
+      background-color: #ff6b6b;
+      color: white;
+      border: none;
+      padding: 0.5rem 1rem;
+      cursor: pointer;
+    }
+    button:hover {
+      background-color: #ff8080;
+    }
+  </style>
+  </head>
+  <body>
+    <header>
+      <svg class="logo" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+        <circle cx="50" cy="50" r="45" fill="#ffffff"/>
+        <path d="M30 40 Q50 20 70 40 Q90 60 70 80 Q50 100 30 80 Q10 60 30 40 Z" fill="#4a90e2"/>
+        <circle cx="40" cy="40" r="5" fill="#ffffff"/>
+        <circle cx="60" cy="40" r="5" fill="#ffffff"/>
+        <path d="M40 60 Q50 70 60 60" stroke="#ffffff" stroke-width="3" fill="none"/>
+      </svg>  
+      <h1>DeliverEase</h1>
+      <p>Gestão de Delivery para Restaurantes</p>
+    </header>
+
+    <nav>
+      <ul>
+        <li><a href="home.html">Início</a></li>
+        <li><a href="restaurantes.html">Restaurantes</a></li>
+        <li><a href="pedidos.html">Pedidos</a></li>
+        <li><a href="comofunciona.html">Como Funciona</a></li>
+        <li><a href="cadastro.html">Cadastro</a></li>
+        <li><a href="painelcontrole.html">Painel</a></li>
+        <li><a href="gestaoprodutos.html">Gestão</a></li>
+      </ul>
+    </nav>
+
+    <main>
+      <h2>Gerenciar Menu</h2>
+      <div id="menu-list">
+        <!-- Os itens do menu serão inseridos aqui dinamicamente -->
+      </div>
+      <button id="add-item">Adicionar Item</button>
+    </main>
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script>
+    $(document).ready(function() {
+      const menuItems = [
+        { name: 'Pizza Margherita', price: 25.90 },
+        { name: 'Hambúrguer Clássico', price: 18.50 },
+        { name: 'Salada Caesar', price: 15.90 }
+      ];
+
+      function renderMenu() {
+        $('#menu-list').empty();
+        menuItems.forEach((item, index) => {
+          $('#menu-list').append(`
+            <div class="menu-item">
+              <h3>${item.name}</h3>
+              <p class="price">R$ ${item.price.toFixed(2)}</p>
+              <button class="edit-item" data-index="${index}">Editar</button>
+              <button class="delete-item" data-index="${index}">Excluir</button>
+            </div>
+          `);
+        });
+      }
+
+      renderMenu();
+
+      $('#add-item').click(function() {
+        const name = prompt('Nome do item:');
+        const price = parseFloat(prompt('Preço do item:'));
+        if (name && !isNaN(price)) {
+          menuItems.push({ name, price });
+          renderMenu();
+        }
+      });
+
+      $(document).on('click', '.edit-item', function() {
+        const index = $(this).data('index');
+        const item = menuItems[index];
+        const name = prompt('Nome do item:', item.name);
+        const price = parseFloat(prompt('Preço do item:', item.price));
+        if (name && !isNaN(price)) {
+          menuItems[index] = { name, price };
+          renderMenu();
+        }
+      });
+
+      $(document).on('click', '.delete-item', function() {
+        const index = $(this).data('index');
+        if (confirm('Tem certeza que deseja excluir este item?')) {
+          menuItems.splice(index, 1);
+          renderMenu();
+        }
+      });
+    });
+  </script>
+  </body></html>
