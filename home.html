@@ -1,157 +1,217 @@
-<html><head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>DeliverEase - Sistema de Gestão de Delivery</title>
-  <link rel="stylesheet" href="css/style.css">
-  <style>
-   
-    main {
-      max-width: 1200px;
-      margin: 2rem auto;
-      padding: 0 1rem;
-    }
-    .features {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-      gap: 2rem;
-      margin-top: 2rem;
-    }
-    .feature {
-      background-color: white;
-      border-radius: 8px;
-      padding: 1.5rem;
-      box-shadow: 0 4px 6px rgba(0,0,0,0.1);
-      transition: transform 0.3s ease;
-    }
-    .feature:hover {
-      transform: translateY(-5px);
-    }
-    .feature h3 {
-      color: #ff6b6b;
-      margin-top: 0;
-    }
-    .feature-icon {
-      font-size: 3rem;
-      margin-bottom: 1rem;
-    }
-    .cta {
-      text-align: center;
-      margin-top: 3rem;
-    }
-    .cta-button {
-      background-color: #ff6b6b;
-      color: white;
-      padding: 1rem 2rem;
-      font-size: 1.2rem;
-      text-decoration: none;
-      border-radius: 50px;
-      transition: background-color 0.3s ease;
-    }
-    .cta-button:hover {
-      background-color: #ff8787;
-    }
-    footer {
-      background-color: #333;
-      color: white;
-      text-align: center;
-      padding: 1rem 0;
-      margin-top: 2rem;
-    }
-  </style>
-  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
-  <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
-</head>
-<body>
-  <header>
-    <svg class="logo" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
-      <circle cx="50" cy="50" r="45" fill="#ffffff"/>
-      <path d="M30 40 Q50 20 70 40 Q90 60 70 80 Q50 100 30 80 Q10 60 30 40 Z" fill="#4a90e2"/>
-      <circle cx="40" cy="40" r="5" fill="#ffffff"/>
-      <circle cx="60" cy="40" r="5" fill="#ffffff"/>
-      <path d="M40 60 Q50 70 60 60" stroke="#ffffff" stroke-width="3" fill="none"/>
-    </svg>  
-    <h1>DeliverEase</h1>
-    <p class="tagline">Simplifique a gestão do seu delivery</p>
-  </header>
-  
-  <nav>
-    <ul>
-      <li><a href="home.html">Início</a></li>
-      <li><a href="restaurantes.html">Restaurantes</a></li>
-      <li><a href="pedidos.html">Pedidos</a></li>
-      <li><a href="comofunciona.html">Como Funciona</a></li>
-      <li><a href="cadastro.html">Cadastro</a></li>
-      <li><a href="painelcontrole.html">Painel</a></li>
-      <li><a href="gestaoprodutos.html">Gestão</a></li>
-      <li><a href="bi.html">BI</a></li>
-    </ul>
-  </nav>
-  
-  <main>
-    <h2>Bem-vindo ao DeliverEase</h2>
-    <p>Gerencie seu negócio de delivery com eficiência e facilidade. Nossa plataforma oferece todas as ferramentas necessárias para impulsionar seu sucesso.</p>
-    
-    <div class="features">
-      <div class="feature">
-        <div class="feature-icon"><i class="fas fa-utensils"></i></div>
-        <h3>Gestão de Menus</h3>
-        <p>Crie e atualize facilmente seus menus, preços e disponibilidade de itens em tempo real.</p>
-      </div>
-      <div class="feature">
-        <div class="feature-icon"><i class="fas fa-clipboard-list"></i></div>
-        <h3>Gerenciamento de Pedidos</h3>
-        <p>Acompanhe e gerencie todos os pedidos em uma interface intuitiva e eficiente.</p>
-      </div>
-      <div class="feature">
-        <div class="feature-icon"><i class="fas fa-clipboard-list"></i></div>
-        <h3>Gerenciamento de Restaurantes</h3>
-        <p>Acompanhe e gerencie todos os reataurantes em uma interface intuitiva e eficiente.</p>
-      </div>
-      <div class="feature">
-        <div class="feature-icon"><i class="fas fa-truck"></i></div>
-        <h3>Logística de Entrega</h3>
-        <p>Otimize suas rotas de entrega e melhore a eficiência operacional.</p>
-      </div>
-      <div class="feature">
-        <div class="feature-icon"><i class="fas fa-chart-line"></i></div>
-        <h3>Relatórios e Análises - BI</h3>
-        <p>Obtenha insights valiosos sobre seu negócio com relatórios detalhados e análises em tempo real.</p>
-      </div>
-      <div class="feature">
-        <div class="feature-icon"><i class="fas fa-chart-line"></i></div>
-        <h3>Análises</h3>
-        <p>Obtenha os resultados de seu negócio com relatórios detalhados e análises em tempo real.</p>
-      </div>
-    </div>
-    
-    <div class="cta">
-      <a href="cadastro.html" class="cta-button">Comece Agora</a>
-    </div>
-  </main>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>DeliverEase - Sistema de Gestão de Delivery</title>
+    <link rel="stylesheet" href="css/style.css" />
+    <style>
+      main {
+        max-width: 1200px;
+        margin: 2rem auto;
+        padding: 0 1rem;
+      }
+      .features {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        gap: 2rem;
+        margin-top: 2rem;
+      }
+      .feature {
+        background-color: white;
+        border-radius: 8px;
+        padding: 1.5rem;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        transition: transform 0.3s ease;
+      }
+      .feature:hover {
+        transform: translateY(-5px);
+      }
+      .feature h3 {
+        color: #ff6b6b;
+        margin-top: 0;
+      }
+      .feature-icon {
+        font-size: 3rem;
+        margin-bottom: 1rem;
+      }
+      .cta {
+        text-align: center;
+        margin-top: 3rem;
+      }
+      .cta-button {
+        background-color: #ff6b6b;
+        color: white;
+        padding: 1rem 2rem;
+        font-size: 1.2rem;
+        text-decoration: none;
+        border-radius: 50px;
+        transition: background-color 0.3s ease;
+      }
+      .cta-button:hover {
+        background-color: #ff8787;
+      }
+      footer {
+        background-color: #333;
+        color: white;
+        text-align: center;
+        padding: 1rem 0;
+        margin-top: 2rem;
+      }
+    </style>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet" />
+    <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+  </head>
+  <body>
+    <header>
+      <svg class="logo" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+        <circle cx="50" cy="50" r="45" fill="#ffffff" />
+        <path d="M30 40 Q50 20 70 40 Q90 60 70 80 Q50 100 30 80 Q10 60 30 40 Z" fill="#4a90e2" />
+        <circle cx="40" cy="40" r="5" fill="#ffffff" />
+        <circle cx="60" cy="40" r="5" fill="#ffffff" />
+        <path d="M40 60 Q50 70 60 60" stroke="#ffffff" stroke-width="3" fill="none" />
+      </svg>
+      <h1>DeliverEase</h1>
+      <p>/</p>
+      <p class="tagline">Simplifique a gestão do seu delivery</p>
+      <button class="menu-toggle" id="menuToggle">☰</button>
+    </header>
 
-  <footer>
-    <p>&copy; 2023 DeliverEase. Todos os direitos reservados.</p>
-  </footer>
+    <nav>
+      <ul id="menu">
+        <li>
+          <a href="home.html">Início</a>
+        </li>
+        <li>
+          <a href="restaurantes.html">Restaurantes</a>
+        </li>
+        <li>
+          <a href="pedidos.html">Pedidos</a>
+        </li>
+        <li>
+          <a href="comofunciona.html">Como Funciona</a>
+        </li>
+        <li>
+          <a href="cadastro.html">Cadastro</a>
+        </li>
+        <li>
+          <a href="painelcontrole.html">Painel</a>
+        </li>
+        <li>
+          <a href="gestaoprodutos.html">Gestão</a>
+        </li>
+        <li>
+          <a href="bi.html">BI</a>
+        </li>
+      </ul>
+    </nav>
 
-  <script>
-    document.addEventListener('DOMContentLoaded', () => {
-      const features = document.querySelectorAll('.feature');
+    <main>
+      <h2>Bem-vindo ao DeliverEase</h2>
+      <p>Gerencie seu negócio de delivery com eficiência e facilidade. Nossa plataforma oferece todas as ferramentas necessárias para impulsionar seu sucesso.</p>
+
+      <div class="features">
+        <div class="feature">
+          <div class="feature-icon">
+            <i class="fas fa-utensils"></i>
+          </div>
+          <h3>Gestão de Menus</h3>
+          <p>Crie e atualize facilmente seus menus, preços e disponibilidade de itens em tempo real.</p>
+        </div>
+        <div class="feature">
+          <div class="feature-icon">
+            <i class="fas fa-clipboard-list"></i>
+          </div>
+          <h3>Gerenciamento de Pedidos</h3>
+          <p>Acompanhe e gerencie todos os pedidos em uma interface intuitiva e eficiente.</p>
+        </div>
+        <div class="feature">
+          <div class="feature-icon">
+            <i class="fas fa-clipboard-list"></i>
+          </div>
+          <h3>Gerenciamento de Restaurantes</h3>
+          <p>Acompanhe e gerencie todos os reataurantes em uma interface intuitiva e eficiente.</p>
+        </div>
+        <div class="feature">
+          <div class="feature-icon">
+            <i class="fas fa-truck"></i>
+          </div>
+          <h3>Logística de Entrega</h3>
+          <p>Otimize suas rotas de entrega e melhore a eficiência operacional.</p>
+        </div>
+        <div class="feature">
+          <div class="feature-icon">
+            <i class="fas fa-chart-line"></i>
+          </div>
+          <h3>Relatórios e Análises - BI</h3>
+          <p>Obtenha insights valiosos sobre seu negócio com relatórios detalhados e análises em tempo real.</p>
+        </div>
+        <div class="feature">
+          <div class="feature-icon">
+            <i class="fas fa-chart-line"></i>
+          </div>
+          <h3>Análises</h3>
+          <p>Obtenha os resultados de seu negócio com relatórios detalhados e análises em tempo real.</p>
+        </div>
+      </div>
+
+      <div class="cta">
+        <a href="cadastro.html" class="cta-button">Comece Agora</a>
+      </div>
+    </main>
+
+    <footer>
+      <p>&copy; 2023 DeliverEase. Todos os direitos reservados.</p>
+    </footer>
+
+    <script>
+      document.addEventListener('DOMContentLoaded', () => {
+        const features = document.querySelectorAll('.feature')
       
-      const observer = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-          if (entry.isIntersecting) {
-            entry.target.style.opacity = 1;
-            entry.target.style.transform = 'translateY(0)';
-          }
-        });
-      }, { threshold: 0.1 });
+        const observer = new IntersectionObserver(
+          (entries) => {
+            entries.forEach((entry) => {
+              if (entry.isIntersecting) {
+                entry.target.style.opacity = 1
+                entry.target.style.transform = 'translateY(0)'
+              }
+            })
+          },
+          { threshold: 0.1 }
+        )
+      
+        features.forEach((feature) => {
+          feature.style.opacity = 0
+          feature.style.transform = 'translateY(20px)'
+          feature.style.transition = 'opacity 0.5s ease, transform 0.5s ease'
+          observer.observe(feature)
+        })
+      })
 
-      features.forEach(feature => {
-        feature.style.opacity = 0;
-        feature.style.transform = 'translateY(20px)';
-        feature.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
-        observer.observe(feature);
-      });
-    });
-  </script>
-</body></html>
+       // Menu responsivo
+       const menuToggle = document.getElementById('menuToggle');
+       const menu = document.getElementById('menu');
+ 
+       menuToggle.addEventListener('click', () => {
+         menu.classList.toggle('show');
+       });
+ 
+       // Fechar o menu ao clicar em um item (para telas menores)
+       const menuItems = menu.getElementsByTagName('a');
+       for (let item of menuItems) {
+         item.addEventListener('click', () => {
+           if (window.innerWidth <= 768) {
+             menu.classList.remove('show');
+           }
+         });
+       }
+ 
+       // Ajustar o menu ao redimensionar a janela
+       window.addEventListener('resize', () => {
+         if (window.innerWidth > 768) {
+           menu.classList.remove('show');
+         }
+       });
+    </script>
+  </body>
+</html>

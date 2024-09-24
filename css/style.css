@@ -14,8 +14,9 @@ header {
     box-shadow: 0 2px 4px rgba(0,0,0,0.1);
     display: flex;
     justify-content: center;
-    align-items: center;
+    align-items: baseline;
   }
+  
   .logo {
     width: 50px;
     height: 50px;
@@ -49,4 +50,46 @@ nav ul li a {
 
 nav ul li a:hover {
     color: #2c3e50;
+}
+
+
+.menu-toggle {
+  display: none;
+  background: none;
+  border: none;
+  font-size: 1.5rem;
+  color: white;
+  cursor: pointer;
+}
+@media (max-width: 768px) {
+  header {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  .menu-toggle {
+    display: block;
+    align-self: flex-end;
+    margin-top: -2.5rem;
+  }
+  nav {
+    width: 100%;
+  }
+  nav ul {
+    flex-direction: column;
+    display: none;
+  }
+  nav ul.show {
+    display: flex;
+  }
+  nav ul li {
+    margin: 0;
+    text-align: center;
+    font-size: 20px;
+    text-decoration: none;
+  }
+  nav ul li a {
+    padding: 1rem;
+    border-top: 1px solid #e0e0e0;
+   
+  }
 }

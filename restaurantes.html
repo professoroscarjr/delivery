@@ -1,9 +1,10 @@
 <html><head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>DeliverEase - Plataforma de Delivery</title>
-  <link rel="stylesheet" href="css/style.css">
-  <style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DeliverEase - Plataforma de Delivery</title>
+    <link rel="stylesheet" href="css/style.css">
+
+    <style>
    
     main {
       max-width: 1200px;
@@ -68,65 +69,79 @@
       margin-top: 3rem;
     }
   </style>
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
-</head>
-<body>
-  <header>
-    <h1>DeliverEase</h1>
-    <p>A plataforma de delivery que facilita sua vida</p>
-  </header>
 
-  <nav>
-    <ul>
-      <li><a href="home.html">Início</a></li>
-      <li><a href="restaurantes.html">Restaurantes</a></li>
-      <li><a href="pedidos.html">Pedidos</a></li>
-      <li><a href="comofunciona.html">Como Funciona</a></li>
-      <li><a href="cadastro.html">Cadastro</a></li>
-      <li><a href="painelcontrole.html">Painel</a></li>
-      <li><a href="gestaoprodutos.html">Gestão</a></li>
-    </ul>
-  </nav>
+  </head>
+  <body>
+    <header>
+      <svg class="logo" viewBox="0 0 100 100"
+        xmlns="http://www.w3.org/2000/svg">
+        <circle cx="50" cy="50" r="45" fill="#ffffff" />
+        <path d="M30 40 Q50 20 70 40 Q90 60 70 80 Q50 100 30 80 Q10 60 30 40 Z"
+          fill="#4a90e2" />
+        <circle cx="40" cy="40" r="5" fill="#ffffff" />
+        <circle cx="60" cy="40" r="5" fill="#ffffff" />
+        <path d="M40 60 Q50 70 60 60" stroke="#ffffff" stroke-width="3"
+          fill="none" />
+      </svg>
+      <h1>DeliverEase</h1>
+      <p>/</p>
+      <p class="tagline">Simplifique a gestão do seu delivery</p>
+    </header>
 
-  <main>
-    <section class="hero">
-      <div class="hero-content">
-        <h2>Peça seu prato favorito agora!</h2>
-        <p>Entrega rápida, segura e com os melhores restaurantes da cidade.</p>
-        <a href="restaurantes2.html" class="btn">Ver Restaurantes</a>
-      </div>
-    </section>
+    <nav>
+      <ul>
+        <li><a href="home.html">Início</a></li>
+        <li><a href="restaurantes.html">Restaurantes</a></li>
+        <li><a href="pedidos.html">Pedidos</a></li>
+        <li><a href="comofunciona.html">Como Funciona</a></li>
+        <li><a href="cadastro.html">Cadastro</a></li>
+        <li><a href="painelcontrole.html">Painel</a></li>
+        <li><a href="gestaoprodutos.html">Gestão</a></li>
+        <li><a href="bi.html">BI</a></li>
+      </ul>
+    </nav>
 
-    <section class="features">
-      <div class="feature">
-        <i class="fas fa-utensils"></i>
-        <h3>Variedade de Restaurantes</h3>
-        <p>Escolha entre centenas de opções de restaurantes e cuisines.</p>
-      </div>
-      <div class="feature">
-        <i class="fas fa-clock"></i>
-        <h3>Entrega Rápida</h3>
-        <p>Receba seu pedido em tempo recorde com nossa rede de entregadores.</p>
-      </div>
-      <div class="feature">
-        <i class="fas fa-mobile-alt"></i>
-        <h3>Fácil de Usar</h3>
-        <p>Faça pedidos com poucos cliques através do nosso app ou site.</p>
-      </div>
-    </section>
+    <main>
+      <section class="hero">
+        <div class="hero-content">
+          <h2>Peça seu prato favorito agora!</h2>
+          <p>Entrega rápida, segura e com os melhores restaurantes da
+            cidade.</p>
+          <a href="restaurantes2.html" class="btn">Ver Restaurantes</a>
+        </div>
+      </section>
 
-    <section class="cta">
-      <h2>Pronto para experimentar?</h2>
-      <p>Cadastre-se agora e ganhe 50% de desconto na sua primeira compra!</p>
-      <a href="cadastro.html" class="btn">Cadastre-se Grátis</a>
-    </section>
-  </main>
+      <section class="features">
+        <div class="feature">
+          <i class="fas fa-utensils"></i>
+          <h3>Variedade de Restaurantes</h3>
+          <p>Escolha entre centenas de opções de restaurantes e cuisines.</p>
+        </div>
+        <div class="feature">
+          <i class="fas fa-clock"></i>
+          <h3>Entrega Rápida</h3>
+          <p>Receba seu pedido em tempo recorde com nossa rede de
+            entregadores.</p>
+        </div>
+        <div class="feature">
+          <i class="fas fa-mobile-alt"></i>
+          <h3>Fácil de Usar</h3>
+          <p>Faça pedidos com poucos cliques através do nosso app ou site.</p>
+        </div>
+      </section>
 
-  <footer>
-    <p>&copy; 2023 DeliverEase. Todos os direitos reservados.</p>
-  </footer>
+      <section class="cta">
+        <h2>Pronto para experimentar?</h2>
+        <p>Cadastre-se agora e ganhe 50% de desconto na sua primeira compra!</p>
+        <a href="cadastro.html" class="btn">Cadastre-se Grátis</a>
+      </section>
+    </main>
 
-  <script>
+    <footer>
+      <p>&copy; 2023 DeliverEase. Todos os direitos reservados.</p>
+    </footer>
+
+    <script>
     // Adiciona comportamento de rolagem suave para links internos
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
       anchor.addEventListener('click', function (e) {
@@ -164,4 +179,4 @@
     // Carrega os restaurantes populares após 2 segundos
     setTimeout(loadPopularRestaurants, 2000);
   </script>
-</body></html>
+  </body></html>
